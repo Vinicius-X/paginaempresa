@@ -14,20 +14,35 @@
     <P id="agenda"></P>
 
     <connect class="php"></connect>
+
+        <?php
     
-    <?php
+        $servidor="localhost";
+    $usuario="root";
+    $senha="";
+    $nomedb="escola2";
+    //conexão
+    $conn= new mysqli($servidor, $usuario, $senha, $nomedb);
+    //checa conexão
+    if ($conn->connect_error){
+        die("Conexao falhou: " . $conn->connect_error);
+    }
+    echo"Conectado a agenda"."<br>";
 
-$servidor="localhost";
-$usuario="escola";
-$senha="123";
-$nomedb="escola";
-$conn= new mysqli($servidor, $usuario, $senha, $nomedb);
-if ($conn->connect_error){
-    die("Conexao falhou: " . $conn->connect_error);
+    $sql = "SELECT * FROM agenda";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - nome: " . $row["nome"]. " " . $row["telefone"]. "<br>";
+  }
+} else {
+  echo "0 results";
 }
-echo"Conectado ao banco de dados"."<br>";
+$conn->close();
 
-?>
+    ?>
 
 
     <p>produzido por: Carlinhos</p>
