@@ -8,8 +8,9 @@
 </head>
 <body>
     <h1>Agenda da empresa Dante</h1>
-    <img src="logo.jpg">
-    <button type="button">Consultar Agenda</button>
+    <img src="logo.jpg"><br>
+
+    <a href="conecta.php"></a>
     <p>Nome: Telefone</p>
     <P id="agenda"></P>
 
@@ -44,8 +45,7 @@ $conn->close();
 
     ?>
 
-
-    <p>produzido por: Carlinhos</p>
+<p>produzido por: Carlinhos</p>
     
 </body>
 </html>
